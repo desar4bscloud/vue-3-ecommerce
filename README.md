@@ -1,25 +1,39 @@
-# vue-3-ecommerce
+# Vue 3 Ecommerce
 
-This template should help get you started developing with Vue 3 in Vite.
+Tienda online.
 
-## Recommended IDE Setup
+## Entities
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Product
+- id
+- name
+- description
+- price
+- image
 
-## Type Support for `.vue` Imports in TS
+### Category
+- name
+- description
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### Cart
+- products: `[{productId:1,quantity:3},{productId:7,quantity:5}]`
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Components
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### ProductCard
 
-## Customize configuration
+## Pages
+- / -> Todos los productos
+- /category/5 -> Productos sólo de la categoría 5
+- /cart -> Ver el carrito de compras
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+
+
+
+
+
+
 
 ## Project Setup
 
@@ -44,3 +58,25 @@ npm run build
 ```sh
 npm run lint
 ```
+
+
+
+
+## Error en líneas de código por misunderstanding del IDE con la versión de TypeScript
+
+- Oprimimos 'F1' y escribimos TypeScript. Nos saldra una opción para seleccionar la versión del mismo por parte de la extensión volar.
+- Seleccionamos la versión que dice 'Workspace' para que el IDE use es la versión del código con el que estamos trabajando y no la versión que infiere.
+- Activar el Take Over Mode de la extensión Volar:
+    - Debemos inicialmente desactivar un servicio que viene activo por defecto en el VSCode. 
+    - Oprimimos 'Control + Shift + P', escribimos 'built' y seleccionamos la opción que dice 'Show Built-in Extensions'.
+    - Se abre la ventana de las extensiones y completamos lo que ya está escrito con el texto 'TypeScript'.
+    - Se podrán visualizar 2 extensiones que son provistas por el VSCode.
+    - Desactivamos la llamada TypeScript and JavaScript Language Features (Click derecho y Disable (Workspace)).
+
+
+## Desactivar opción de autocompletado de la extensión Volar:
+- Copiamos el nombre de la opción de la extensión.
+- Nos dirigimos a las opciones de la extensión Volar y click en 'Extension Settings'.
+- Y pegamos en la barra de búsqueda la opción: 'eventArgumentsInInlineHandlers'
+- Por último quitamos el check de la opción que nos sale en la búsqueda.
+
