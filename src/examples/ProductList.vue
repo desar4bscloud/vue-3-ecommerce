@@ -16,29 +16,37 @@
                     { id: 3, name: 'Micrófono', price: 120 }
                 ],
                 details: <Array<CartDetail>>[]
-            };
+            }
         },
         methods: {
             onAddProduct(productId: number) {
                 const detailFound = this.details.find(d => d.productId === productId);
 
-                console.log(detailFound);
+                if(detailFound){
+                    detailFound.quantity++
+                }else{
+                    this.details.push({
+                        productId: productId,
+                        quantity: 1
+                    });
+                }
 
-                this.details.push({
-                    productId: productId,
-                    quantity: 1
-                });
             }
         }
     }
 </script>
 
 <template>
-    <ProductCard 
-        v-for="p in products" 
-        :product="p"
-        @addProduct="onAddProduct(p.id)"
-    />
-
-    <Cart :details="details"/>
+    <v-container>
+        <v-row>
+            <v-col v-for="p in products" cols="4">
+                <ProductCard 
+                    :product="p"
+                    @addProduct="onAddProduct(p.id)"
+                />
+            </v-col>
+        </v-row>
+    
+        <Cart :details="details"/>
+    </v-container>
 </template>

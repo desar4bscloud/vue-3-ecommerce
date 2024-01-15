@@ -22,10 +22,28 @@
 </script>
 
 <template>
-    <p>Nombre: {{ product.name }}</p>
-    <p>Precio: {{ product.price }}</p>
-    <button @click="buttonClick">
-        Agregar al carrito
-    </button>
-    <hr>
+
+    <v-card>
+
+        <v-img class="align-end text-white" height="200" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-img>
+        <v-card-title>
+            {{ product.name }}
+        </v-card-title>
+
+        <v-card-text>
+            <p class="mb-4">
+                Esta es una descripción de ejemplo
+            </p>
+            <v-chip>
+                $ {{ product.price }}
+            </v-chip>
+        </v-card-text>
+
+        <v-card-actions>
+            <v-btn @click="buttonClick" color="orange-lighten-2">
+                Agregar al carrito
+            </v-btn>
+        </v-card-actions>
+
+    </v-card>    
 </template>
