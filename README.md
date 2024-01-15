@@ -114,3 +114,43 @@ import { createPinia } from 'pinia'
 
 app.use(createPinia())
 ```
+
+## Ejemplo de Computed Properties con Nullish Coalescing Operator:
+
+- Inicialmente, cuando hablamos de Computed Properties, hacemos referencia a cálculos o lógica con diferentes valores del componente. Esto se hace con el fin de evitar que generemos lógica en el template. Ejemplo:
+
+```typescript
+  <script>
+    export default {
+      data() {
+        return {
+          author: {
+            name: 'John Doe',
+            books: [
+              'Vue 2 - Advanced Guide',
+              'Vue 3 - Basic Guide',
+              'Vue 4 - The Mystery'
+            ]
+          }
+        }
+      },
+      computed: {
+        publishedBooksMessage() {
+          return this.author.books.length > 0 ? 'Yes' : 'No'
+        },
+        firstBookPublished(){
+          return this.author.books[0] ?? 'No ha publicado ningún libro'
+        }
+
+      }
+    }
+  </script>
+
+  <template>
+    <p>Has published books:</p>
+    <span>{{ publishedBooksMessage }}</span>
+    <hr>
+    <p>Primer libro publicado del autor</p>
+    <p>{{ firstBookPublished }}</p>
+  </template>
+```

@@ -3,7 +3,7 @@
 -> Componentes
 
     - Estado: el estado de un componente se refiere a los datos y valores que el componente mantiene y utiliza para representar su estado interno. El estado puede incluir variables, objetos, arreglos, y cualquier otra información que afecte al comportamiento y la apariencia del componente.
-    - Indicarle "contexto" a los atributos de los componentes: se est� manejando un componente <v-card> y para este, necesito darle un t�tulo, para ello se utiliza el atributo title="Card title", pero si necesito pasarle una variable y que el atributo no me compile eso como un texto literal, se le agrega ':' al nombre del atributo para indicarle a este que lo que va a recibir lo tome como c�digo JS, as� :title='objeto.atributo'.
+    - Indicarle "contexto" a los atributos de los componentes: se est� manejando un componente <v-card> y para este, necesito darle un t�tulo, para ello se utiliza el atributo title="Card title", pero si necesito pasarle una variable y que el atributo no me compile eso como un texto literal, se le agrega ':' al nombre del atributo para indicarle a este que lo que va a recibir lo tome como c�digo JS, as� :title='objeto.atributo'.
 -> Uso de TypeScript dentro de los componentes:
 
     - En el ejemplo de esta aplicación, se da el caso de que se debe utilizar 'TS' dentro de un componente hijo inicialmente. Lo que se debe hacer para completar todo el correcto proceso es lo siguiente:
@@ -134,3 +134,38 @@
     -- mounted(): se utiliza para implementar lógica sobre el componene al momento de la creación del mismo.
 
 
+
+-> Pinia:
+
+    - Posee una particularidad al igual que el mismo Vue, y es que también posee 2 posibilidades de API. 
+        
+        - Options: se puede definir un store con su respectivo estado, getters y actions:
+
+        export const useCounterStore = defineStore('counter', {
+            state: () => ({ count: 0, name: 'Eduardo' }),
+            getters: {
+                doubleCount: (state) => state.count * 2,
+            },
+            actions: {
+                increment() {
+                this.count++
+                },
+            },
+        })
+
+        - Composition: se puede pasar en una función que define propiedades y métodos reactivos y retornan un objeto con estos mismos que queremos exponer (en esta sintaxis no está explícito lo que va a hacer cada parte del store, se sobreentiende lo que hace cada línea de código):
+            
+            - Las variables de estado se deben definir utilizando la función "ref()".
+            - Los getters se definen por medio de la función "computed()".
+            - Los actions son funciones que modifican el estado.
+
+        export const useCounterStore = defineStore('counter', () => {
+            const count = ref(0)
+            const name = ref('Eduardo')
+            const doubleCount = computed(() => count.value * 2)
+            function increment() {
+                count.value++
+            }
+
+            return { count, name, doubleCount, increment }
+        })
