@@ -27,5 +27,24 @@ export const useCartStore = defineStore('cart', {
           });
       }
     },
+    deleteProduct(productId: number){
+      const index = this.details.findIndex(d => d.productId === productId);
+      this.details.splice(index,1);
+    },
+    increment(productId: number){
+      const detailFound = this.details.find(d => d.productId === productId);
+      if(detailFound){
+        detailFound.quantity++
+      }
+    },
+    decrement(productId: number){
+      const detailFound = this.details.find(d => d.productId === productId);
+      if(detailFound){
+        detailFound.quantity--
+        if(detailFound.quantity === 0){
+          this.deleteProduct(productId)
+        }
+      }
+    }
   },
 })
