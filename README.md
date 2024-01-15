@@ -85,7 +85,7 @@ npm run lint
 ## Instalar Vuetify en un proyecto ya existente:
 
 - Inicialmente ejecutamos el comando npm install vuetify@^"VERSION"
-- Añadimos estas líneas al documento que monta la app de Vue (incluyendo vuetify de esta manera, lo estamos importando de manera global, por lo tanto no hay necesidad de hacerlo local en los documentos donde se va a utilizar):
+- AÃ±adimos estas lï¿½neas al documento que monta la app de Vue (incluyendo vuetify de esta manera, lo estamos importando de manera global, por lo tanto no hay necesidad de hacerlo local en los documentos donde se va a utilizar):
 
 ```typescript
 import 'vuetify/styles'
@@ -101,13 +101,13 @@ const vuetify = createVuetify({
 app.use(vuetify)
 app.mount('#app')
 ```
-- Procedemos a utilizar los componentes que tenemos a disposición.
+- Procedemos a utilizar los componentes que tenemos a disposiciï¿½n.
 
 
 
 ## Habilitar Pinia en un proyecto:
 
-- Utilizamos las siguientes líneas de código para incluir Pinia en nuestro archivo que monta la app de vue:
+- Utilizamos las siguientes lï¿½neas de cï¿½digo para incluir Pinia en nuestro archivo que monta la app de vue:
 ```typescript
 // Pinia
 import { createPinia } from 'pinia'
@@ -117,7 +117,7 @@ app.use(createPinia())
 
 ## Ejemplo de Computed Properties con Nullish Coalescing Operator:
 
-- Inicialmente, cuando hablamos de Computed Properties, hacemos referencia a cálculos o lógica con diferentes valores del componente. Esto se hace con el fin de evitar que generemos lógica en el template. Ejemplo:
+- Inicialmente, cuando hablamos de Computed Properties, hacemos referencia a cï¿½lculos o lï¿½gica con diferentes valores del componente. Esto se hace con el fin de evitar que generemos lï¿½gica en el template. Ejemplo:
 
 ```typescript
   <script>
@@ -139,7 +139,7 @@ app.use(createPinia())
           return this.author.books.length > 0 ? 'Yes' : 'No'
         },
         firstBookPublished(){
-          return this.author.books[0] ?? 'No ha publicado ningún libro'
+          return this.author.books[0] ?? 'No ha publicado ningï¿½n libro'
         }
 
       }

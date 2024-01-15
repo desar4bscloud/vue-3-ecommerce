@@ -4,13 +4,12 @@
   export default{
     components: {
       ProductList
-    },
-    props: ['details']
+    }
   }
 </script>
 
 <template>
   <main>
-    <ProductList :details="details"/>
+    <ProductList />
   </main>
 </template>

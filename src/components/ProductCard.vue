@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import type { Product } from '@/model/types';
+import { useCartStore } from '@/stores/cart';
 
 export default {
     props:{
@@ -9,12 +10,10 @@ export default {
             required: true
         }
     },
-    emits: [
-        'addProduct'
-    ],
     methods: {
         buttonClick() {
-            this.$emit('addProduct');
+            const cartStore = useCartStore();
+            cartStore.addProduct(this.product.id);
         }
     }
 }
@@ -32,7 +31,7 @@ export default {
 
         <v-card-text>
             <p class="mb-4">
-                Esta es una descripción de ejemplo
+                Esta es una descripciï¿½n de ejemplo
             </p>
             <v-chip>
                 $ {{ product.price }}
