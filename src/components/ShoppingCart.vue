@@ -1,7 +1,6 @@
 <script lang="ts">    
 
 import { useCartStore } from '@/stores/cart';
-import { RouterLink } from 'vue-router';
 
 export default {
 
@@ -34,19 +33,13 @@ export default {
         
         <v-card-text>
             <v-list v-if="details.length > 0">
-                <v-list-item v-for="detail in details" :value="detail.productId">
+                <v-list-item v-for="detail in details" :key="detail.productId">
                     <v-list-item-title>
                         Producto: {{ detail.productId }} 
-                        <v-btn @click="incrementQuantity(detail.productId)">
-                            +
-                        </v-btn>
+                        <v-btn class="ml-2" icon="mdi-plus" size="x-small" @click="incrementQuantity(detail.productId)"/>
                         (Cantidad: {{detail.quantity }})
-                        <v-btn @click="decrementQuantity(detail.productId)">
-                            -
-                        </v-btn>
-                        <v-btn @click="deleteProduct(detail.productId)">
-                            ELIMINAR
-                        </v-btn>
+                        <v-btn icon="mdi-minus" size="x-small" @click="decrementQuantity(detail.productId)"/>
+                        <v-btn class="ml-2" icon="mdi-delete" size="x-small" @click="deleteProduct(detail.productId)"/>
                     </v-list-item-title>
                 </v-list-item>
             </v-list>

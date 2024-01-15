@@ -1,14 +1,14 @@
 <script lang="ts">
   
-  import Cart from '../components/Cart.vue';
+  import ShoppingCart from '../components/ShoppingCart.vue';
   
   export default{
     components: {
-      Cart
+      ShoppingCart
     }
   }
 </script>
 
 <template>
-  <Cart />
+  <ShoppingCart />
 </template>

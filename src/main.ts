@@ -12,6 +12,9 @@ import router from './router'
 // Pinia
 import { createPinia } from 'pinia'
 
+// Icons
+import '@mdi/font/css/materialdesignicons.css'
+
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -25,6 +28,8 @@ const vuetify = createVuetify({
     defaultTheme: 'dark'
   }
 })
+
+// Mounting
 
 const app = createApp(App)
 
