@@ -31,7 +31,7 @@ export default {
 
         <v-card-text>
             <p class="mb-4">
-                Esta es una descripci�n de ejemplo
+                Esta es una descripción de ejemplo
             </p>
             <v-chip>
                 $ {{ product.price }}

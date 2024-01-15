@@ -14,22 +14,15 @@
                 products: <Array<Product>> [
                     { id: 1, name: 'Silla', price: 56 },
                     { id: 2, name: 'Monitor', price: 450 },
-                    { id: 3, name: 'Micr�fono', price: 120 }
+                    { id: 3, name: 'Micrófono', price: 120 },
+                    { id: 1, name: 'Silla', price: 56 },
+                    { id: 2, name: 'Monitor', price: 450 },
+                    { id: 3, name: 'Micrófono', price: 120 }
                 ]
             }
         },
         methods: {
             onAddProduct(productId: number) {
-                const detailFound = this.details.find(d => d.productId === productId);
-
-                if(detailFound){
-                    detailFound.quantity++
-                }else{
-                    this.details.push({
-                        productId: productId,
-                        quantity: 1
-                    });
-                }
 
             }
         }
@@ -45,6 +38,4 @@
                 />
             </v-col>
         </v-row>
-    
-        <Cart :details="details"/>
 </template>

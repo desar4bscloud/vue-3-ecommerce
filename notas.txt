@@ -4,6 +4,9 @@
 
     - Estado: el estado de un componente se refiere a los datos y valores que el componente mantiene y utiliza para representar su estado interno. El estado puede incluir variables, objetos, arreglos, y cualquier otra información que afecte al comportamiento y la apariencia del componente.
     - Indicarle "contexto" a los atributos de los componentes: se est� manejando un componente <v-card> y para este, necesito darle un t�tulo, para ello se utiliza el atributo title="Card title", pero si necesito pasarle una variable y que el atributo no me compile eso como un texto literal, se le agrega ':' al nombre del atributo para indicarle a este que lo que va a recibir lo tome como c�digo JS, as� :title='objeto.atributo'.
+    - Cuando estamos haciendo uso de una directiva v-for, se recomienda que cada item sea único, para ello debemos indicar una :key="" indicando cuál es el valor que hace único a cada item
+
+
 -> Uso de TypeScript dentro de los componentes:
 
     - En el ejemplo de esta aplicación, se da el caso de que se debe utilizar 'TS' dentro de un componente hijo inicialmente. Lo que se debe hacer para completar todo el correcto proceso es lo siguiente:
