@@ -1,6 +1,6 @@
 <script lang="ts">    
 import type { PropType } from 'vue';
-import type { CartDetail } from './types';
+import type { CartDetail } from '@/model/types';
 
 export default {
     props: {

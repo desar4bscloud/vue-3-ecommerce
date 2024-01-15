@@ -132,3 +132,5 @@
     - Son bloques de código que podemos ejecutar a lo largo del ciclo de vida de nuestro componente.
 
     -- mounted(): se utiliza para implementar lógica sobre el componene al momento de la creación del mismo.
+
+

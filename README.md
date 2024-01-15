@@ -82,11 +82,12 @@ npm run lint
 
 
 
-## Instalar Vuetify en un proyecto ya existente
+## Instalar Vuetify en un proyecto ya existente:
 
 - Inicialmente ejecutamos el comando npm install vuetify@^"VERSION"
 - Añadimos estas líneas al documento que monta la app de Vue (incluyendo vuetify de esta manera, lo estamos importando de manera global, por lo tanto no hay necesidad de hacerlo local en los documentos donde se va a utilizar):
 
+```typescript
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
@@ -99,5 +100,17 @@ const vuetify = createVuetify({
 
 app.use(vuetify)
 app.mount('#app')
-
+```
 - Procedemos a utilizar los componentes que tenemos a disposición.
+
+
+
+## Habilitar Pinia en un proyecto:
+
+- Utilizamos las siguientes líneas de código para incluir Pinia en nuestro archivo que monta la app de vue:
+```typescript
+// Pinia
+import { createPinia } from 'pinia'
+
+app.use(createPinia())
+```

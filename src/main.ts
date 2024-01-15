@@ -1,8 +1,16 @@
-import { createApp } from 'vue'
-
+// Composition & Options API Examples
 //import Contador from './examples/ContadorOptions.vue'
-// import Contador from './examples/ContadorOptions.vue'
-import ProductList from './examples/ProductList.vue'
+//import Contador from './examples/ContadorOptions.vue'
+
+// Mount
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// Vue Router
+import router from './router'
+
+// Pinia
+import { createPinia } from 'pinia'
 
 // Vuetify
 import 'vuetify/styles'
@@ -18,7 +26,9 @@ const vuetify = createVuetify({
   }
 })
 
-// const app = createApp(Contador)
-const app = createApp(ProductList)
+const app = createApp(App)
+
 app.use(vuetify)
+app.use(router)
+app.use(createPinia())
 app.mount('#app')

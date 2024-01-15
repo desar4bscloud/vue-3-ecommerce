@@ -1,24 +1,23 @@
 <script lang="ts">
+import type { PropType } from 'vue';
+import type { Product } from '@/model/types';
 
-    import type { PropType } from 'vue';
-    import type { Product } from './types';
-
-    export default {
-        props:{
-            product: {
-                type: Object as PropType<Product>,
-                required: true
-            }
-        },
-        emits: [
-            'addProduct'
-        ],
-        methods: {
-            buttonClick() {
-                this.$emit('addProduct');
-            }
+export default {
+    props:{
+        product: {
+            type: Object as PropType<Product>,
+            required: true
+        }
+    },
+    emits: [
+        'addProduct'
+    ],
+    methods: {
+        buttonClick() {
+            this.$emit('addProduct');
         }
     }
+}
 </script>
 
 <template>
@@ -26,6 +25,7 @@
     <v-card>
 
         <v-img class="align-end text-white" height="200" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-img>
+        
         <v-card-title>
             {{ product.name }}
         </v-card-title>
