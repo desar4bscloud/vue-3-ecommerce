@@ -7,6 +7,9 @@
     components: {
       ShoppingCart,
       SummaryCard
+    },
+    mounted(){
+      
     }
   }
 </script>

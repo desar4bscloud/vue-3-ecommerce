@@ -1,15 +1,20 @@
 import type { Category } from '@/model/types'
 import { defineStore } from 'pinia'
-import categoriesData from '../data/categories.json'
 
 export const useCategoriesStore = defineStore('categories', {
   state: () => ({
-    categories: categoriesData as Category[]
+    categories: [] as Category[]
   }),
   getters: {
     
   },
   actions: {
-
+    fetchCategories(){
+      fetch('/data/categories.json')
+          .then(response => response.json())
+          .then((data)=>{
+              this.categories = data;
+          })
+    },
   }
 })
