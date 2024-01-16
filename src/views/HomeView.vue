@@ -21,8 +21,7 @@
       beforeRouteUpdate(to){
           console.log('beforeRouteUpdate',to.params);
           updateCategoryFromRouteParams(to.params.categoryId);
-      }
-      
+      }      
   }
 </script>
 
