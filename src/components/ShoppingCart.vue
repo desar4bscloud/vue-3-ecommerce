@@ -1,48 +1,50 @@
 <script lang="ts">    
 
 import { useCartStore } from '@/stores/cart';
+import { mapState } from 'pinia';
+import ShoppingCartItem from './ShoppingCartItem.vue';
 
 export default {
-
-    methods: {
-        incrementQuantity(productId: number){
-            this.cartStore.increment(productId);
-        },
-        decrementQuantity(productId: number){
-            this.cartStore.decrement(productId);
-        },
-        deleteProduct(productId: number){
-            this.cartStore.deleteProduct(productId);
-        }
+    components: { 
+        ShoppingCartItem 
     },
-    computed:{
-        cartStore(){
-            return useCartStore();
-        },
-        details(){
-            return this.cartStore.details;
-        }
+    computed: {
+        ...mapState(useCartStore, ['details'])
     }
 }
 </script>
 
 <template>
     <v-card class="mt-4">
-
         <v-card-title>Productos agregados al carrito:</v-card-title>
-        
         <v-card-text>
-            <v-list v-if="details.length > 0">
-                <v-list-item v-for="detail in details" :key="detail.productId">
-                    <v-list-item-title>
-                        Producto: {{ detail.productId }} 
-                        <v-btn class="ml-2" icon="mdi-plus" size="x-small" @click="incrementQuantity(detail.productId)"/>
-                        (Cantidad: {{detail.quantity }})
-                        <v-btn icon="mdi-minus" size="x-small" @click="decrementQuantity(detail.productId)"/>
-                        <v-btn class="ml-2" icon="mdi-delete" size="x-small" @click="deleteProduct(detail.productId)"/>
-                    </v-list-item-title>
-                </v-list-item>
-            </v-list>
+            <v-table v-if="details.length > 0">
+                <thead>
+                    <tr>
+                        <th class="text-left">
+                            Producto
+                        </th>
+                        <th class="text-center">
+                            Cantidad
+                        </th>
+                        <th class="text-left">
+                            Precio
+                        </th>
+                        <th class="text-left">
+                            Subtotal
+                        </th>
+                        <th class="text-left">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ShoppingCartItem 
+                     v-for="detail in details" 
+                    :key="detail.product.id"
+                    :detail="detail" />
+                </tbody>
+            </v-table>
             <p v-else>
                 Aún no has agregado productos a tu carrito de compras.<br>
                 Haz <RouterLink to="/">click aquí</RouterLink> para ver los productos disponibles.

@@ -59,9 +59,6 @@ npm run build
 npm run lint
 ```
 
-
-
-
 ## Error en líneas de código por misunderstanding del IDE con la versión de TypeScript
 
 - Oprimimos 'F1' y escribimos TypeScript. Nos saldra una opción para seleccionar la versión del mismo por parte de la extensión volar.
