@@ -29,10 +29,13 @@
             Todas
         </v-list-item-title>
     </v-list-item>
-    <v-list-item :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
-    v-for="category in categories" :key="category.id" link @click="goToCategory(category.id)" >
-        <v-list-item-title>
-            {{ category.name }}
-        </v-list-item-title>
-    </v-list-item>
+
+    <v-skeleton-loader :loading="false" type="list-item-two-line">
+        <v-list-item :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
+        v-for="category in categories" :key="category.id" link @click="goToCategory(category.id)" >
+            <v-list-item-title>
+                {{ category.name }}
+            </v-list-item-title>
+        </v-list-item>
+    </v-skeleton-loader>
 </template>

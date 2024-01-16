@@ -22,11 +22,18 @@
           updateCategoryFromRouteParams(to.params.categoryId);
       },
       mounted(){
-        const productsStore = useProductsStore();
-        productsStore.fetchProducts();
 
-        const categoriesStore = useCategoriesStore();
-        categoriesStore.fetchCategories();
+        setTimeout(()=>{
+          const productsStore = useProductsStore();
+          productsStore.fetchProducts();
+        }, 4000)
+        
+        setTimeout(()=>{
+          const categoriesStore = useCategoriesStore();
+          categoriesStore.fetchCategories();
+        }, 2000)
+
+        
       }
   }
 </script>

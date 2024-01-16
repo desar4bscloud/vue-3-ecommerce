@@ -10,6 +10,9 @@ export const useCategoriesStore = defineStore('categories', {
   },
   actions: {
     fetchCategories(){
+
+      
+
       fetch('/data/categories.json')
           .then(response => response.json())
           .then((data)=>{
