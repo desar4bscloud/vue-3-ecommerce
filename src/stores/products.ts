@@ -1,6 +1,6 @@
 import type { Product } from '@/model/types'
 import { defineStore } from 'pinia'
-import productsData from '../../public/data/products.json'
+import productsData from '../data/products.json'
 
 export const useProductsStore = defineStore('products', {
   state: () => ({
