@@ -9,12 +9,48 @@
         data() {
             return {
                 products: [
-                    { id: 1, name: 'Silla', price: 56,image:'https://www.toplivingusa.com/images/productos/59812015-BURDEOS-0.jpg'},
-                    { id: 2, name: 'Monitor', price: 450,image:'https://pcredcom.com/blog/wp-content/uploads/2020/07/monitor-dell.jpg' },
-                    { id: 3, name: 'Micrófono', price: 120, image:'https://files.soniccdn.com/files/2022/11/20/se-electronics-v7.jpg'},
-                    { id: 4, name: 'Parlante', price: 56, image:'/parlante.jpg'},
-                    { id: 5, name: 'Audífonos', price: 450},
-                    { id: 6, name: 'Mouse', price: 120}
+                    { 
+                        id: 1,
+                        name: 'Silla',
+                        price: 56,
+                        image: '/products/silla.jpg',
+                        categoryId: 1
+                    },
+                    { 
+                        id: 2,
+                        name: 'Monitor',
+                        price: 450,
+                        image: '/products/monitor.jpg',
+                        categoryId: 1
+                    },
+                    { 
+                        id: 3,
+                        name: 'Micrófono',
+                        price: 120,
+                        image: '/products/microfono.jpg',
+                        categoryId: 2
+                    },
+                    { 
+                        id: 4,
+                        name: 'Parlante',
+                        price: 56,
+                        image:'/products/parlante.jpg',
+                        categoryId: 1
+                    },
+                    { 
+                        id: 5,
+                        name: 'Audífonos',
+                        price: 450,
+                        image: '/products/audifonos.jpg',
+                        categoryId: 2
+                    },
+                    { 
+                        id: 6,
+                        name: 'Mouse',
+                        price: 120,
+                        image: '/products/mouse.jpg',
+                        categoryId: 2
+                    },
                 ] as Product[]
             }
         }

@@ -6,11 +6,14 @@
                 categories: [
                     {
                         id:1,
-                        name: 'Technology'
+                        name: 'Oficina',
+                        description: 'Productos para tu oficina.'
                     },
                     {
                         id:2,
-                        name: 'Toys'
+                        name: 'Computadora',
+                        description: 'Accesorios para computadora.'
+
                     }
                 ] as Category[]
             };
