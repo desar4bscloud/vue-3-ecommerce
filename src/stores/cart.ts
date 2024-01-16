@@ -12,6 +12,13 @@ export const useCartStore = defineStore('cart', {
         count += detail.quantity;
       });
       return count;
+    },
+    totalAmout: (state) =>{
+      let sum = 0;
+      state.details.forEach(d=>{
+        sum += d.product.price * d.quantity
+      });
+      return sum;
     }
   },
   actions: {

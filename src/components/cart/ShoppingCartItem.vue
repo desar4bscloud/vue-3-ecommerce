@@ -39,7 +39,7 @@
         </td>
         <td class="text-center">
             <v-btn class="ml-2" icon="mdi-plus" size="x-small" @click="incrementQuantity(detail.product.id)"/>
-            (Cantidad: {{detail.quantity }})
+            {{detail.quantity }}
             <v-btn icon="mdi-minus" size="x-small" @click="decrementQuantity(detail.product.id)"/>
         </td>
         <td>

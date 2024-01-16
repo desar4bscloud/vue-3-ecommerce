@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <v-card class="mt-4">
+    <v-card>
         <v-card-title>Productos agregados al carrito:</v-card-title>
         <v-card-text>
             <v-table v-if="details.length > 0">
@@ -34,7 +34,9 @@ export default {
                             Subtotal
                         </th>
                         <th class="text-left">
-                            Eliminar
+                            <span class="d-sr-only">
+                                Eliminar
+                            </span>
                         </th>
                     </tr>
                 </thead>
