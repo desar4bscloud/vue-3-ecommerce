@@ -1,6 +1,9 @@
 <script lang="ts">
     import type { Category } from '@/model/types';
-import router from '@/router';
+    import router from '@/router';
+    import { useProductsStore } from '@/stores/products';
+    import { mapActions } from 'pinia';
+
     export default {
         data(){
             return{
@@ -19,19 +22,20 @@ import router from '@/router';
                 ] as Category[]
             };
         },
-        methods: {
-            selectCategory(categoryId: number){
+        methods: {            
+            clearCategory(){
+                this.$router.push({
+                    name: 'home'
+                })
+            },
+            goToCategory(categoryId: number){
                 this.$router.push({
                     name: 'category',
                     params: { categoryId }
                 })
             },
-            clearCategory(){
-                this.$router.push({
-                    name: 'home'
-                })
-            }
-        }
+            ...mapActions(useProductsStore,['orderByName','orderByPrice'])
+        },
     }
 
 </script>
@@ -39,6 +43,7 @@ import router from '@/router';
 <template>
     <v-sheet rounded="lg">
         <v-list rounded="lg">
+
             <v-list-subheader>Categorías</v-list-subheader>
             <v-list-item link @click="clearCategory()" :active="$route.name === 'home' ">
                 <v-list-item-title>
@@ -46,24 +51,26 @@ import router from '@/router';
                 </v-list-item-title>
             </v-list-item>
             <v-list-item :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
-            v-for="category in categories" :key="category.id" link @click="selectCategory(category.id)" >
+            v-for="category in categories" :key="category.id" link @click="goToCategory(category.id)" >
                 <v-list-item-title>
                     {{ category.name }}
                 </v-list-item-title>
             </v-list-item>
 
             <v-divider class="my-2"></v-divider>
+
             <v-list-subheader>Orden</v-list-subheader>
-            <v-list-item color="grey-lighten-4" link>
+            <v-list-item link @click="orderByPrice">
                 <v-list-item-title>
                     Por precio
                 </v-list-item-title>
             </v-list-item>
-            <v-list-item color="grey-lighten-4" link>
+            <v-list-item link @click="orderByName">
                 <v-list-item-title>
                     Por nombre
                 </v-list-item-title>
             </v-list-item>
+
         </v-list>
     </v-sheet>
 </template>
