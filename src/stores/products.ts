@@ -5,7 +5,8 @@ export const useProductsStore = defineStore('products', {
   state: () => ({
     order: 'price' as string,
     categoryId:null as number|null,
-    _products: [] as Product[]
+    _products: [] as Product[],
+    loading: true
   }),
   getters: {    
     products(state){
@@ -40,6 +41,7 @@ export const useProductsStore = defineStore('products', {
             .then(response => response.json())
             .then((data)=>{
                 this._products = data;
+                this.loading = false;
             })
     },
     selectCategory(categoryId:number){
@@ -57,5 +59,5 @@ export const useProductsStore = defineStore('products', {
     orderByNameDesc(){
         this.order = 'nameDesc';
     },
-  }  
+  }
 })

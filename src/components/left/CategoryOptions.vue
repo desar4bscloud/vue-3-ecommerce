@@ -17,7 +17,7 @@
             }
         },
         computed: {
-            ...mapState(useCategoriesStore,['categories'])
+            ...mapState(useCategoriesStore,['categories','loading'])
         },
     }
 </script>
@@ -30,7 +30,7 @@
         </v-list-item-title>
     </v-list-item>
 
-    <v-skeleton-loader :loading="false" type="list-item-two-line">
+    <v-skeleton-loader :loading="loading" type="list-item-two-line">
         <v-list-item :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
         v-for="category in categories" :key="category.id" link @click="goToCategory(category.id)" >
             <v-list-item-title>
@@ -38,4 +38,16 @@
             </v-list-item-title>
         </v-list-item>
     </v-skeleton-loader>
+
+    <!-- <v-progress-linear v-if="loading" indeterminate></v-progress-linear>
+
+    <v-list-item 
+         v-else
+        :active="$route.name === 'category' && Number($route.params.categoryId) === category.id" 
+         v-for="category in categories" :key="category.id" link @click="goToCategory(category.id)" 
+    >
+        <v-list-item-title>
+            {{ category.name }}
+        </v-list-item-title>
+    </v-list-item> -->
 </template>
