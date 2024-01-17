@@ -18,7 +18,7 @@
         <v-progress-circular indeterminate :size="50"/>
     </div>
     <v-row v-else>
-        <v-col v-for="p in products" :key="p.id" cols="4">
+        <v-col v-for="p in products" :key="p.id" cols="12" sm="4">
             <ProductCard :product="p"/>
         </v-col>
     </v-row>

@@ -26,7 +26,13 @@
 
 <template>
     <v-card>
-        <v-img class="align-end text-white" height="200" :src="productImageUrl" cover></v-img>
+        <v-img 
+            aspect-ratio="" 
+            cover
+            height="250"
+            class="align-end text-white"
+            :src="productImageUrl">
+        </v-img>
         <v-card-title>
             {{ product.name }}
         </v-card-title>

@@ -3,6 +3,9 @@
     import { mapState } from 'pinia';
 
     export default{
+        computed: {
+            ...mapState(useCategoriesStore,['categories','loading'])
+        },
         methods: {            
             clearCategory(){
                 this.$router.push({
@@ -15,39 +18,30 @@
                     params: { categoryId }
                 })
             }
-        },
-        computed: {
-            ...mapState(useCategoriesStore,['categories','loading'])
-        },
+        }
     }
 </script>
 
 <template>
+
+
     <v-list-subheader>Categorías</v-list-subheader>
-    <v-list-item link @click="clearCategory()" :active="$route.name === 'home' ">
+    <v-list-item link @click="clearCategory()" :active="$route.name === 'home'">
         <v-list-item-title>
             Todas
         </v-list-item-title>
     </v-list-item>
 
-    <v-skeleton-loader :loading="loading" type="list-item-two-line">
-        <v-list-item :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
-        v-for="category in categories" :key="category.id" link @click="goToCategory(category.id)" >
-            <v-list-item-title>
-                {{ category.name }}
-            </v-list-item-title>
-        </v-list-item>
-    </v-skeleton-loader>
-
-    <!-- <v-progress-linear v-if="loading" indeterminate></v-progress-linear>
-
     <v-list-item 
-         v-else
-        :active="$route.name === 'category' && Number($route.params.categoryId) === category.id" 
-         v-for="category in categories" :key="category.id" link @click="goToCategory(category.id)" 
+        :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
+        v-for="category in categories" 
+        :key="category.id" 
+        link 
+        @click="goToCategory(category.id)"
     >
         <v-list-item-title>
             {{ category.name }}
         </v-list-item-title>
-    </v-list-item> -->
+    </v-list-item>
+    
 </template>
