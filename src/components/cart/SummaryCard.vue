@@ -4,7 +4,7 @@
 
     export default {
         computed: {
-            ...mapState(useCartStore, ['totalAmout'])
+            ...mapState(useCartStore, ['totalAmout','whatsAppLink'])
         }
     }
 </script>
@@ -18,7 +18,7 @@
             Total a pagar: ${{ totalAmout }}
         </v-card-subtitle>
         <v-card-text>
-            <v-btn variant="tonal" color="orange-lighten-2">
+            <v-btn :href="whatsAppLink" target="_blank" variant="tonal" color="orange-lighten-2">
                 Realizar pedido
             </v-btn>
         </v-card-text>
